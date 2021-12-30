@@ -1,0 +1,1443 @@
+
+(object Petal
+    version    	50
+    _written   	"Rose 2006.0.0.060314"
+    charSet    	134)
+
+(object Design "Logical View"
+    is_unit    	TRUE
+    is_loaded  	TRUE
+    quid       	"5ECE25480201"
+    enforceClosureAutoLoad 	FALSE
+    defaults   	(object defaults
+	rightMargin 	0.250000
+	leftMargin 	0.250000
+	topMargin  	0.250000
+	bottomMargin 	0.500000
+	pageOverlap 	0.250000
+	clipIconLabels 	TRUE
+	autoResize 	TRUE
+	snapToGrid 	TRUE
+	gridX      	0
+	gridY      	0
+	defaultFont 	(object Font
+	    size       	10
+	    face       	"Arial"
+	    bold       	FALSE
+	    italics    	FALSE
+	    underline  	FALSE
+	    strike     	FALSE
+	    color      	0
+	    default_color 	TRUE)
+	showMessageNum 	3
+	showClassOfObject 	TRUE
+	notation   	"Unified")
+    root_usecase_package 	(object Class_Category "Use Case View"
+	quid       	"5ECE25480203"
+	exportControl 	"Public"
+	global     	TRUE
+	logical_models 	(list unit_reference_list
+	    (object Class "NewClass"
+		quid       	"5ECE25FB02A3")
+	    (object Mechanism @1
+		logical_models 	(list unit_reference_list)))
+	statemachine 	(object State_Machine "State/Activity Model"
+	    quid       	"5ECE2BE1038A"
+	    states     	(list States
+		(object State "$UNNAMED$0"
+		    quid       	"5ECE2C620335"
+		    type       	"StartState")
+		(object State "$UNNAMED$1"
+		    quid       	"5ECE2C670213"
+		    type       	"EndState")
+		(object Decision "满意吗"
+		    quid       	"5ECE2D010173")
+		(object State "$UNNAMED$2"
+		    quid       	"5ECE2DD10240"
+		    type       	"EndState")
+		(object Decision "是新客户吗"
+		    quid       	"5ECE2DFB0154")
+		(object SynchronizationState "$UNNAMED$3"
+		    quid       	"5ECE303F0173")
+		(object ActivityState "申请服务"
+		    quid       	"5ECE30520204")
+		(object ActivityState "登记客户信息"
+		    quid       	"5ECE31230085")
+		(object ActivityState "上门勘察"
+		    quid       	"5ECE31250216")
+		(object ActivityState "指定方案"
+		    quid       	"5ECE312702B5")
+		(object ActivityState "签订服务合同"
+		    quid       	"5ECE312A0120")
+		(object ActivityState "验收并填写反馈意见"
+		    quid       	"5ECE312D036D")
+		(object ActivityState "安排工人"
+		    quid       	"5ECE317D0105")
+		(object ActivityState "NewActivity2"
+		    quid       	"5ECE318002C7")
+		(object SynchronizationState "$UNNAMED$4"
+		    quid       	"5ECE31C703B5")
+		(object ActivityState "填写派工单"
+		    quid       	"5ECE31E6024E")
+		(object ActivityState "领取材料"
+		    quid       	"5ECE320E01C7")
+		(object ActivityState "上门服务"
+		    quid       	"5ECE32110336")
+		(object ActivityState "结算尾款"
+		    quid       	"5ECE323C021D")
+		(object ActivityState "交回派工单"
+		    quid       	"5ECE324803C1")
+		(object State "$UNNAMED$5"
+		    quid       	"5ECE3290037E"
+		    type       	"EndState"))
+	    partitions 	(list Partitions
+		(object Partition "客户"
+		    quid       	"5ECE2C050282"
+		    persistence 	"Transient"
+		    creationObj 	FALSE
+		    multi      	FALSE)
+		(object Partition "业务经理"
+		    quid       	"5ECE2C1202E8"
+		    persistence 	"Transient"
+		    creationObj 	FALSE
+		    multi      	FALSE)
+		(object Partition "工人"
+		    quid       	"5ECE2C4B0066"
+		    persistence 	"Transient"
+		    creationObj 	FALSE
+		    multi      	FALSE)
+		(object Partition "财务人员"
+		    quid       	"5ECE2C570055"
+		    persistence 	"Transient"
+		    creationObj 	FALSE
+		    multi      	FALSE))
+	    objects    	(list Objects)
+	    transitions 	(list transition_list
+		(object State_Transition
+		    quid       	"5ECE2DCC021E"
+		    supplier   	"Use Case View::State/Activity Model::签订服务合同"
+		    supplier_quidu 	"5ECE312A0120"
+		    client     	"Use Case View::State/Activity Model::满意吗"
+		    client_quidu 	"5ECE2D010173"
+		    sendEvent  	(object sendEvent
+			quid       	"5ECE2DCC0221"))
+		(object State_Transition
+		    quid       	"5ECE2DD60008"
+		    label      	""
+		    supplier   	"$UNNAMED$2"
+		    supplier_quidu 	"5ECE2DD10240"
+		    client     	"Use Case View::State/Activity Model::满意吗"
+		    client_quidu 	"5ECE2D010173"
+		    Event      	(object Event "否"
+			quid       	"5ECE2DD60009")
+		    sendEvent  	(object sendEvent
+			quid       	"5ECE2DD6000B"))
+		(object State_Transition
+		    quid       	"5ECE2E7E03BE"
+		    supplier   	"Use Case View::State/Activity Model::上门勘察"
+		    supplier_quidu 	"5ECE31250216"
+		    client     	"Use Case View::State/Activity Model::是新客户吗"
+		    client_quidu 	"5ECE2DFB0154"
+		    sendEvent  	(object sendEvent
+			quid       	"5ECE2E7E03C1"))
+		(object State_Transition
+		    quid       	"5ECE2E880147"
+		    supplier   	"Use Case View::State/Activity Model::指定方案"
+		    supplier_quidu 	"5ECE312702B5"
+		    client     	"Use Case View::State/Activity Model::上门勘察"
+		    client_quidu 	"5ECE31250216"
+		    sendEvent  	(object sendEvent
+			quid       	"5ECE2E88014A"))
+		(object State_Transition
+		    quid       	"5ECE2EDF012E"
+		    supplier   	"Use Case View::State/Activity Model::登记客户信息"
+		    supplier_quidu 	"5ECE31230085"
+		    client     	"Use Case View::State/Activity Model::是新客户吗"
+		    client_quidu 	"5ECE2DFB0154"
+		    sendEvent  	(object sendEvent
+			quid       	"5ECE2EDF0131"))
+		(object State_Transition
+		    quid       	"5ECE2EE7011D"
+		    supplier   	"Use Case View::State/Activity Model::签订服务合同"
+		    supplier_quidu 	"5ECE312A0120"
+		    client     	"Use Case View::State/Activity Model::上门勘察"
+		    client_quidu 	"5ECE31250216"
+		    sendEvent  	(object sendEvent
+			quid       	"5ECE2EE70120"))
+		(object State_Transition
+		    quid       	"5ECE2FDD00B8"
+		    supplier   	"Use Case View::State/Activity Model::上门勘察"
+		    supplier_quidu 	"5ECE31250216"
+		    client     	"Use Case View::State/Activity Model::满意吗"
+		    client_quidu 	"5ECE2D010173"
+		    sendEvent  	(object sendEvent
+			quid       	"5ECE2FDD00BB"))
+		(object State_Transition
+		    quid       	"5ECE30230071"
+		    supplier   	"Use Case View::State/Activity Model::指定方案"
+		    supplier_quidu 	"5ECE312702B5"
+		    client     	"Use Case View::State/Activity Model::满意吗"
+		    client_quidu 	"5ECE2D010173"
+		    sendEvent  	(object sendEvent
+			quid       	"5ECE30230074"))
+		(object State_Transition
+		    quid       	"5ECE302B0346"
+		    supplier   	"Use Case View::State/Activity Model::满意吗"
+		    supplier_quidu 	"5ECE2D010173"
+		    client     	"Use Case View::State/Activity Model::指定方案"
+		    client_quidu 	"5ECE312702B5"
+		    sendEvent  	(object sendEvent
+			quid       	"5ECE302B0349"))
+		(object State_Transition
+		    quid       	"5ECE304401F5"
+		    supplier   	"$UNNAMED$3"
+		    supplier_quidu 	"5ECE303F0173"
+		    client     	"Use Case View::State/Activity Model::签订服务合同"
+		    client_quidu 	"5ECE312A0120"
+		    sendEvent  	(object sendEvent
+			quid       	"5ECE304401F8"))
+		(object State_Transition
+		    quid       	"5ECE30FF0120"
+		    supplier   	"Use Case View::State/Activity Model::申请服务"
+		    supplier_quidu 	"5ECE30520204"
+		    client     	"$UNNAMED$0"
+		    client_quidu 	"5ECE2C620335"
+		    sendEvent  	(object sendEvent
+			quid       	"5ECE30FF0123"))
+		(object State_Transition
+		    quid       	"5ECE31680097"
+		    supplier   	"Use Case View::State/Activity Model::是新客户吗"
+		    supplier_quidu 	"5ECE2DFB0154"
+		    client     	"Use Case View::State/Activity Model::申请服务"
+		    client_quidu 	"5ECE30520204"
+		    sendEvent  	(object sendEvent
+			quid       	"5ECE3168009A"))
+		(object State_Transition
+		    quid       	"5ECE3171014D"
+		    supplier   	"Use Case View::State/Activity Model::上门勘察"
+		    supplier_quidu 	"5ECE31250216"
+		    client     	"Use Case View::State/Activity Model::登记客户信息"
+		    client_quidu 	"5ECE31230085"
+		    sendEvent  	(object sendEvent
+			quid       	"5ECE31710150"))
+		(object State_Transition
+		    quid       	"5ECE31CF03CF"
+		    supplier   	"Use Case View::State/Activity Model::安排工人"
+		    supplier_quidu 	"5ECE317D0105"
+		    client     	"$UNNAMED$3"
+		    client_quidu 	"5ECE303F0173"
+		    sendEvent  	(object sendEvent
+			quid       	"5ECE31CF03D2"))
+		(object State_Transition
+		    quid       	"5ECE31D90015"
+		    supplier   	"Use Case View::State/Activity Model::上门勘察"
+		    supplier_quidu 	"5ECE31250216"
+		    client     	"$UNNAMED$3"
+		    client_quidu 	"5ECE303F0173"
+		    sendEvent  	(object sendEvent
+			quid       	"5ECE31D90018"))
+		(object State_Transition
+		    quid       	"5ECE31DF016A"
+		    supplier   	"$UNNAMED$4"
+		    supplier_quidu 	"5ECE31C703B5"
+		    client     	"Use Case View::State/Activity Model::安排工人"
+		    client_quidu 	"5ECE317D0105"
+		    sendEvent  	(object sendEvent
+			quid       	"5ECE31DF016D"))
+		(object State_Transition
+		    quid       	"5ECE31E103C5"
+		    supplier   	"$UNNAMED$4"
+		    supplier_quidu 	"5ECE31C703B5"
+		    client     	"Use Case View::State/Activity Model::上门勘察"
+		    client_quidu 	"5ECE31250216"
+		    sendEvent  	(object sendEvent
+			quid       	"5ECE31E103C8"))
+		(object State_Transition
+		    quid       	"5ECE320300A5"
+		    supplier   	"Use Case View::State/Activity Model::填写派工单"
+		    supplier_quidu 	"5ECE31E6024E"
+		    client     	"$UNNAMED$4"
+		    client_quidu 	"5ECE31C703B5"
+		    sendEvent  	(object sendEvent
+			quid       	"5ECE320300A8"))
+		(object State_Transition
+		    quid       	"5ECE3222003B"
+		    supplier   	"Use Case View::State/Activity Model::验收并填写反馈意见"
+		    supplier_quidu 	"5ECE312D036D"
+		    client     	"Use Case View::State/Activity Model::上门服务"
+		    client_quidu 	"5ECE32110336"
+		    sendEvent  	(object sendEvent
+			quid       	"5ECE3222003E"))
+		(object State_Transition
+		    quid       	"5ECE322A0099"
+		    supplier   	"Use Case View::State/Activity Model::领取材料"
+		    supplier_quidu 	"5ECE320E01C7"
+		    client     	"Use Case View::State/Activity Model::填写派工单"
+		    client_quidu 	"5ECE31E6024E"
+		    sendEvent  	(object sendEvent
+			quid       	"5ECE322A009C"))
+		(object State_Transition
+		    quid       	"5ECE3230018D"
+		    supplier   	"Use Case View::State/Activity Model::上门服务"
+		    supplier_quidu 	"5ECE32110336"
+		    client     	"Use Case View::State/Activity Model::领取材料"
+		    client_quidu 	"5ECE320E01C7"
+		    sendEvent  	(object sendEvent
+			quid       	"5ECE32300190"))
+		(object State_Transition
+		    quid       	"5ECE3281005F"
+		    supplier   	"Use Case View::State/Activity Model::交回派工单"
+		    supplier_quidu 	"5ECE324803C1"
+		    client     	"Use Case View::State/Activity Model::验收并填写反馈意见"
+		    client_quidu 	"5ECE312D036D"
+		    sendEvent  	(object sendEvent
+			quid       	"5ECE32810062"))
+		(object State_Transition
+		    quid       	"5ECE328501C4"
+		    supplier   	"Use Case View::State/Activity Model::结算尾款"
+		    supplier_quidu 	"5ECE323C021D"
+		    client     	"Use Case View::State/Activity Model::交回派工单"
+		    client_quidu 	"5ECE324803C1"
+		    sendEvent  	(object sendEvent
+			quid       	"5ECE328501C7"))
+		(object State_Transition
+		    quid       	"5ECE32960039"
+		    supplier   	"$UNNAMED$5"
+		    supplier_quidu 	"5ECE3290037E"
+		    client     	"Use Case View::State/Activity Model::结算尾款"
+		    client_quidu 	"5ECE323C021D"
+		    sendEvent  	(object sendEvent
+			quid       	"5ECE3296003C")))
+	    objectflows 	(list objectflow_list)
+	    statediagrams 	(list StateDiagrams
+		(object ActivityDiagram "NewDiagram2"
+		    quid       	"5ECE2BE1038E"
+		    title      	"NewDiagram2"
+		    zoom       	100
+		    max_height 	28350
+		    max_width  	21600
+		    origin_x   	1119
+		    origin_y   	219
+		    items      	(list diagram_item_list
+			(object Swimlane "客户" @2
+			    line_color 	3342489
+			    quidu      	"5ECE2C050282"
+			    width      	716)
+			(object StateView "StartState" "$UNNAMED$0" @3
+			    Parent_View 	@2
+			    location   	(394, 93)
+			    icon_style 	"Icon"
+			    line_color 	3342489
+			    quidu      	"5ECE2C620335"
+			    autoResize 	TRUE)
+			(object DecisionView "满意吗" @4
+			    Parent_View 	@2
+			    location   	(397, 752)
+			    font       	(object Font
+				size       	10
+				face       	"Arial"
+				bold       	FALSE
+				italics    	FALSE
+				underline  	FALSE
+				strike     	FALSE
+				color      	0
+				default_color 	TRUE)
+			    label      	(object SegLabel @5
+				Parent_View 	@4
+				location   	(328, 731)
+				font       	(object Font
+				    size       	10
+				    face       	"Arial"
+				    bold       	FALSE
+				    italics    	FALSE
+				    underline  	FALSE
+				    strike     	FALSE
+				    color      	0
+				    default_color 	TRUE)
+				anchor     	1
+				nlines     	1
+				max_width  	168
+				justify    	1
+				label      	"满意吗"
+				pctDist    	0.456480
+				height     	157
+				orientation 	1)
+			    icon_style 	"Icon"
+			    line_color 	3342489
+			    fill_color 	13434879
+			    quidu      	"5ECE2D010173"
+			    width      	312
+			    height     	187
+			    autoResize 	TRUE)
+			(object StateView "EndState" "$UNNAMED$2" @6
+			    Parent_View 	@2
+			    location   	(113, 891)
+			    icon_style 	"Icon"
+			    line_color 	3342489
+			    quidu      	"5ECE2DD10240"
+			    autoResize 	TRUE)
+			(object TransView "" @7
+			    font       	(object Font
+				size       	10
+				face       	"Arial"
+				bold       	FALSE
+				italics    	FALSE
+				underline  	FALSE
+				strike     	FALSE
+				color      	0
+				default_color 	TRUE)
+			    label      	(object SegLabel @8
+				Parent_View 	@7
+				location   	(231, 829)
+				font       	(object Font
+				    size       	10
+				    face       	"Arial"
+				    bold       	FALSE
+				    italics    	FALSE
+				    underline  	FALSE
+				    strike     	FALSE
+				    color      	0
+				    default_color 	TRUE)
+				anchor_loc 	1
+				nlines     	1
+				max_width  	450
+				justify    	0
+				label      	"否"
+				pctDist    	0.500000
+				height     	45
+				orientation 	0)
+			    stereotype 	TRUE
+			    line_color 	3342489
+			    quidu      	"5ECE2DD60008"
+			    client     	@4
+			    supplier   	@6
+			    vertices   	(list Points
+				(241, 752)
+				(155, 845))
+			    line_style 	0
+			    x_offset   	FALSE)
+			(object ActivityStateView "申请服务" @9
+			    Parent_View 	@2
+			    location   	(393, 287)
+			    font       	(object Font
+				size       	10
+				face       	"Arial"
+				bold       	FALSE
+				italics    	FALSE
+				underline  	FALSE
+				strike     	FALSE
+				color      	0
+				default_color 	TRUE)
+			    label      	(object ItemLabel
+				Parent_View 	@9
+				location   	(393, 290)
+				fill_color 	13434879
+				anchor_loc 	1
+				nlines     	2
+				max_width  	269
+				justify    	0
+				label      	"申请服务")
+			    icon_style 	"Icon"
+			    line_color 	3342489
+			    fill_color 	13434879
+			    quidu      	"5ECE30520204"
+			    height     	106
+			    annotation 	1
+			    autoResize 	TRUE)
+			(object TransView "" @10
+			    stereotype 	TRUE
+			    line_color 	3342489
+			    quidu      	"5ECE30FF0120"
+			    client     	@3
+			    supplier   	@9
+			    vertices   	(list Points
+				(393, 122)
+				(393, 234))
+			    line_style 	0
+			    x_offset   	FALSE)
+			(object ActivityStateView "签订服务合同" @11
+			    Parent_View 	@2
+			    location   	(397, 1080)
+			    font       	(object Font
+				size       	10
+				face       	"Arial"
+				bold       	FALSE
+				italics    	FALSE
+				underline  	FALSE
+				strike     	FALSE
+				color      	0
+				default_color 	TRUE)
+			    label      	(object ItemLabel
+				Parent_View 	@11
+				location   	(397, 1066)
+				fill_color 	13434879
+				anchor_loc 	1
+				nlines     	2
+				max_width  	194
+				justify    	0
+				label      	"签订服务合同")
+			    icon_style 	"Icon"
+			    line_color 	3342489
+			    fill_color 	13434879
+			    quidu      	"5ECE312A0120"
+			    width      	324
+			    height     	141
+			    annotation 	1
+			    autoResize 	TRUE)
+			(object TransView "" @12
+			    stereotype 	TRUE
+			    line_color 	3342489
+			    quidu      	"5ECE2DCC021E"
+			    client     	@4
+			    supplier   	@11
+			    vertices   	(list Points
+				(397, 845)
+				(397, 1010))
+			    line_style 	0
+			    x_offset   	FALSE)
+			(object ActivityStateView "验收并填写反馈意见" @13
+			    Parent_View 	@2
+			    location   	(422, 1360)
+			    font       	(object Font
+				size       	10
+				face       	"Arial"
+				bold       	FALSE
+				italics    	FALSE
+				underline  	FALSE
+				strike     	FALSE
+				color      	0
+				default_color 	TRUE)
+			    label      	(object ItemLabel
+				Parent_View 	@13
+				location   	(422, 1346)
+				fill_color 	13434879
+				anchor_loc 	1
+				nlines     	2
+				max_width  	248
+				justify    	0
+				label      	"验收并填写反馈意见")
+			    icon_style 	"Icon"
+			    line_color 	3342489
+			    fill_color 	13434879
+			    quidu      	"5ECE312D036D"
+			    width      	378
+			    height     	141
+			    annotation 	1
+			    autoResize 	TRUE)
+			(object Swimlane "业务经理" @14
+			    location   	(716, 0)
+			    line_color 	3342489
+			    quidu      	"5ECE2C1202E8"
+			    width      	1214)
+			(object DecisionView "是新客户吗" @15
+			    Parent_View 	@14
+			    location   	(1391, 206)
+			    font       	(object Font
+				size       	10
+				face       	"Arial"
+				bold       	FALSE
+				italics    	FALSE
+				underline  	FALSE
+				strike     	FALSE
+				color      	0
+				default_color 	TRUE)
+			    label      	(object SegLabel @16
+				Parent_View 	@15
+				location   	(1283, 185)
+				font       	(object Font
+				    size       	10
+				    face       	"Arial"
+				    bold       	FALSE
+				    italics    	TRUE
+				    underline  	FALSE
+				    strike     	FALSE
+				    color      	0
+				    default_color 	TRUE)
+				anchor     	1
+				nlines     	2
+				max_width  	300
+				justify    	1
+				label      	"是新客户吗"
+				pctDist    	0.217151
+				height     	170
+				orientation 	1)
+			    icon_style 	"Icon"
+			    line_color 	3342489
+			    fill_color 	13434879
+			    quidu      	"5ECE2DFB0154"
+			    width      	363
+			    height     	181
+			    autoResize 	TRUE)
+			(object TransView "" @17
+			    stereotype 	TRUE
+			    line_color 	3342489
+			    quidu      	"5ECE31680097"
+			    client     	@9
+			    supplier   	@15
+			    vertices   	(list Points
+				(562, 273)
+				(1210, 206))
+			    line_style 	0
+			    x_offset   	FALSE)
+			(object ActivityStateView "登记客户信息" @18
+			    Parent_View 	@14
+			    location   	(1019, 394)
+			    font       	(object Font
+				size       	10
+				face       	"Arial"
+				bold       	FALSE
+				italics    	FALSE
+				underline  	FALSE
+				strike     	FALSE
+				color      	0
+				default_color 	TRUE)
+			    label      	(object ItemLabel
+				Parent_View 	@18
+				location   	(1019, 380)
+				fill_color 	13434879
+				anchor_loc 	1
+				nlines     	2
+				max_width  	194
+				justify    	0
+				label      	"登记客户信息")
+			    icon_style 	"Icon"
+			    line_color 	3342489
+			    fill_color 	13434879
+			    quidu      	"5ECE31230085"
+			    width      	324
+			    height     	141
+			    annotation 	1
+			    autoResize 	TRUE)
+			(object TransView "" @19
+			    stereotype 	TRUE
+			    line_color 	3342489
+			    quidu      	"5ECE2EDF012E"
+			    client     	@15
+			    supplier   	@18
+			    vertices   	(list Points
+				(1210, 206)
+				(1090, 324))
+			    line_style 	0
+			    x_offset   	FALSE)
+			(object ActivityStateView "上门勘察" @20
+			    Parent_View 	@14
+			    location   	(1397, 504)
+			    font       	(object Font
+				size       	10
+				face       	"Arial"
+				bold       	FALSE
+				italics    	FALSE
+				underline  	FALSE
+				strike     	FALSE
+				color      	0
+				default_color 	TRUE)
+			    label      	(object ItemLabel
+				Parent_View 	@20
+				location   	(1397, 490)
+				fill_color 	13434879
+				anchor_loc 	1
+				nlines     	2
+				max_width  	194
+				justify    	0
+				label      	"上门勘察")
+			    icon_style 	"Icon"
+			    line_color 	3342489
+			    fill_color 	13434879
+			    quidu      	"5ECE31250216"
+			    width      	324
+			    height     	141
+			    annotation 	1
+			    autoResize 	TRUE)
+			(object TransView "" @21
+			    stereotype 	TRUE
+			    line_color 	3342489
+			    quidu      	"5ECE2E7E03BE"
+			    client     	@15
+			    supplier   	@20
+			    vertices   	(list Points
+				(1391, 296)
+				(1394, 434))
+			    line_style 	0
+			    x_offset   	FALSE)
+			(object TransView "" @22
+			    stereotype 	TRUE
+			    line_color 	3342489
+			    quidu      	"5ECE3171014D"
+			    client     	@18
+			    supplier   	@20
+			    vertices   	(list Points
+				(1164, 436)
+				(1251, 461))
+			    line_style 	0
+			    x_offset   	FALSE)
+			(object ActivityStateView "指定方案" @23
+			    Parent_View 	@14
+			    location   	(1394, 727)
+			    font       	(object Font
+				size       	10
+				face       	"Arial"
+				bold       	FALSE
+				italics    	FALSE
+				underline  	FALSE
+				strike     	FALSE
+				color      	0
+				default_color 	TRUE)
+			    label      	(object ItemLabel
+				Parent_View 	@23
+				location   	(1394, 713)
+				fill_color 	13434879
+				anchor_loc 	1
+				nlines     	2
+				max_width  	196
+				justify    	0
+				label      	"指定方案")
+			    icon_style 	"Icon"
+			    line_color 	3342489
+			    fill_color 	13434879
+			    quidu      	"5ECE312702B5"
+			    width      	324
+			    height     	140
+			    annotation 	1
+			    autoResize 	TRUE)
+			(object TransView "" @24
+			    stereotype 	TRUE
+			    line_color 	3342489
+			    quidu      	"5ECE302B0346"
+			    client     	@23
+			    supplier   	@4
+			    vertices   	(list Points
+				(1231, 730)
+				(553, 752))
+			    line_style 	0
+			    x_offset   	FALSE)
+			(object TransView "" @25
+			    stereotype 	TRUE
+			    line_color 	3342489
+			    quidu      	"5ECE2E880147"
+			    client     	@20
+			    supplier   	@23
+			    vertices   	(list Points
+				(1396, 574)
+				(1394, 656))
+			    line_style 	0
+			    x_offset   	FALSE)
+			(object ActivityStateView "安排工人" @26
+			    Parent_View 	@14
+			    location   	(1143, 975)
+			    font       	(object Font
+				size       	10
+				face       	"Arial"
+				bold       	FALSE
+				italics    	FALSE
+				underline  	FALSE
+				strike     	FALSE
+				color      	0
+				default_color 	TRUE)
+			    label      	(object ItemLabel
+				Parent_View 	@26
+				location   	(1143, 978)
+				fill_color 	13434879
+				anchor_loc 	1
+				nlines     	2
+				max_width  	269
+				justify    	0
+				label      	"安排工人")
+			    icon_style 	"Icon"
+			    line_color 	3342489
+			    fill_color 	13434879
+			    quidu      	"5ECE317D0105"
+			    height     	106
+			    annotation 	1
+			    autoResize 	TRUE)
+			(object ActivityStateView "上门勘察" @27
+			    Parent_View 	@14
+			    location   	(1147, 1160)
+			    font       	(object Font
+				size       	10
+				face       	"Arial"
+				bold       	FALSE
+				italics    	FALSE
+				underline  	FALSE
+				strike     	FALSE
+				color      	0
+				default_color 	TRUE)
+			    label      	(object ItemLabel
+				Parent_View 	@27
+				location   	(1147, 1163)
+				fill_color 	13434879
+				anchor_loc 	1
+				nlines     	2
+				max_width  	276
+				justify    	0
+				label      	"上门勘察")
+			    icon_style 	"Icon"
+			    line_color 	3342489
+			    fill_color 	13434879
+			    quidu      	"5ECE31250216"
+			    width      	382
+			    height     	106
+			    annotation 	1
+			    autoResize 	TRUE)
+			(object ActivityStateView "填写派工单" @28
+			    Parent_View 	@14
+			    location   	(1683, 1076)
+			    font       	(object Font
+				size       	10
+				face       	"Arial"
+				bold       	FALSE
+				italics    	FALSE
+				underline  	FALSE
+				strike     	FALSE
+				color      	0
+				default_color 	TRUE)
+			    label      	(object ItemLabel
+				Parent_View 	@28
+				location   	(1683, 1079)
+				fill_color 	13434879
+				anchor_loc 	1
+				nlines     	2
+				max_width  	269
+				justify    	0
+				label      	"填写派工单")
+			    icon_style 	"Icon"
+			    line_color 	3342489
+			    fill_color 	13434879
+			    quidu      	"5ECE31E6024E"
+			    height     	106
+			    annotation 	1
+			    autoResize 	TRUE)
+			(object Label @29
+			    Parent_View 	@14
+			    location   	(1399, 325)
+			    font       	(object Font
+				size       	10
+				face       	"Arial"
+				bold       	FALSE
+				italics    	FALSE
+				underline  	FALSE
+				strike     	FALSE
+				color      	0
+				default_color 	TRUE)
+			    nlines     	1
+			    max_width  	600
+			    justify    	1
+			    label      	"不是")
+			(object ActivityStateView "交回派工单" @30
+			    Parent_View 	@14
+			    location   	(1291, 1591)
+			    font       	(object Font
+				size       	10
+				face       	"Arial"
+				bold       	FALSE
+				italics    	FALSE
+				underline  	FALSE
+				strike     	FALSE
+				color      	0
+				default_color 	TRUE)
+			    label      	(object ItemLabel
+				Parent_View 	@30
+				location   	(1291, 1594)
+				fill_color 	13434879
+				anchor_loc 	1
+				nlines     	2
+				max_width  	269
+				justify    	0
+				label      	"交回派工单")
+			    icon_style 	"Icon"
+			    line_color 	3342489
+			    fill_color 	13434879
+			    quidu      	"5ECE324803C1"
+			    height     	106
+			    annotation 	1
+			    autoResize 	TRUE)
+			(object TransView "" @31
+			    stereotype 	TRUE
+			    line_color 	3342489
+			    quidu      	"5ECE3281005F"
+			    client     	@13
+			    supplier   	@30
+			    vertices   	(list Points
+				(586, 1403)
+				(1139, 1550))
+			    line_style 	0
+			    x_offset   	FALSE)
+			(object Swimlane "工人" @32
+			    location   	(1930, 0)
+			    line_color 	3342489
+			    quidu      	"5ECE2C4B0066"
+			    width      	522)
+			(object ActivityStateView "领取材料" @33
+			    Parent_View 	@32
+			    location   	(2183, 1085)
+			    font       	(object Font
+				size       	10
+				face       	"Arial"
+				bold       	FALSE
+				italics    	FALSE
+				underline  	FALSE
+				strike     	FALSE
+				color      	0
+				default_color 	TRUE)
+			    label      	(object ItemLabel
+				Parent_View 	@33
+				location   	(2183, 1088)
+				fill_color 	13434879
+				anchor_loc 	1
+				nlines     	2
+				max_width  	269
+				justify    	0
+				label      	"领取材料")
+			    icon_style 	"Icon"
+			    line_color 	3342489
+			    fill_color 	13434879
+			    quidu      	"5ECE320E01C7"
+			    height     	106
+			    annotation 	1
+			    autoResize 	TRUE)
+			(object TransView "" @34
+			    stereotype 	TRUE
+			    line_color 	3342489
+			    quidu      	"5ECE322A0099"
+			    client     	@28
+			    supplier   	@33
+			    vertices   	(list Points
+				(1854, 1079)
+				(2011, 1081))
+			    line_style 	0
+			    x_offset   	FALSE)
+			(object ActivityStateView "上门服务" @35
+			    Parent_View 	@32
+			    location   	(2187, 1363)
+			    font       	(object Font
+				size       	10
+				face       	"Arial"
+				bold       	FALSE
+				italics    	FALSE
+				underline  	FALSE
+				strike     	FALSE
+				color      	0
+				default_color 	TRUE)
+			    label      	(object ItemLabel
+				Parent_View 	@35
+				location   	(2187, 1366)
+				fill_color 	13434879
+				anchor_loc 	1
+				nlines     	2
+				max_width  	269
+				justify    	0
+				label      	"上门服务")
+			    icon_style 	"Icon"
+			    line_color 	3342489
+			    fill_color 	13434879
+			    quidu      	"5ECE32110336"
+			    height     	106
+			    annotation 	1
+			    autoResize 	TRUE)
+			(object TransView "" @36
+			    stereotype 	TRUE
+			    line_color 	3342489
+			    quidu      	"5ECE3222003B"
+			    client     	@35
+			    supplier   	@13
+			    vertices   	(list Points
+				(2015, 1362)
+				(604, 1360))
+			    line_style 	0
+			    x_offset   	FALSE)
+			(object TransView "" @37
+			    stereotype 	TRUE
+			    line_color 	3342489
+			    quidu      	"5ECE3230018D"
+			    client     	@33
+			    supplier   	@35
+			    vertices   	(list Points
+				(2183, 1138)
+				(2186, 1309))
+			    line_style 	0
+			    x_offset   	FALSE)
+			(object Swimlane "财务人员" @38
+			    location   	(2452, 0)
+			    line_color 	3342489
+			    quidu      	"5ECE2C570055"
+			    width      	526)
+			(object ActivityStateView "结算尾款" @39
+			    Parent_View 	@38
+			    location   	(2699, 1588)
+			    font       	(object Font
+				size       	10
+				face       	"Arial"
+				bold       	FALSE
+				italics    	FALSE
+				underline  	FALSE
+				strike     	FALSE
+				color      	0
+				default_color 	TRUE)
+			    label      	(object ItemLabel
+				Parent_View 	@39
+				location   	(2699, 1591)
+				fill_color 	13434879
+				anchor_loc 	1
+				nlines     	2
+				max_width  	269
+				justify    	0
+				label      	"结算尾款")
+			    icon_style 	"Icon"
+			    line_color 	3342489
+			    fill_color 	13434879
+			    quidu      	"5ECE323C021D"
+			    height     	106
+			    annotation 	1
+			    autoResize 	TRUE)
+			(object TransView "" @40
+			    stereotype 	TRUE
+			    line_color 	3342489
+			    quidu      	"5ECE328501C4"
+			    client     	@30
+			    supplier   	@39
+			    vertices   	(list Points
+				(1462, 1590)
+				(2527, 1588))
+			    line_style 	0
+			    x_offset   	FALSE)
+			(object StateView "EndState" "$UNNAMED$5" @41
+			    Parent_View 	@38
+			    location   	(2698, 1792)
+			    icon_style 	"Icon"
+			    line_color 	3342489
+			    quidu      	"5ECE3290037E"
+			    autoResize 	TRUE)
+			(object Swimlane "" @42
+			    location   	(2978, 0)
+			    line_color 	3342489
+			    width      	450)
+			(object SynchronizationView "$UNNAMED$3" @43
+			    location   	(865, 1081)
+			    font       	(object Font
+				size       	10
+				face       	"Arial"
+				bold       	FALSE
+				italics    	FALSE
+				underline  	FALSE
+				strike     	FALSE
+				color      	0
+				default_color 	TRUE)
+			    label      	(object SegLabel @44
+				Parent_View 	@43
+				location   	(884, 1157)
+				font       	(object Font
+				    size       	10
+				    face       	"Arial"
+				    bold       	FALSE
+				    italics    	TRUE
+				    underline  	FALSE
+				    strike     	FALSE
+				    color      	0
+				    default_color 	TRUE)
+				nlines     	2
+				max_width  	300
+				justify    	1
+				label      	""
+				pctDist    	0.993333
+				height     	1
+				orientation 	0)
+			    icon_style 	"Icon"
+			    line_color 	3342489
+			    quidu      	"5ECE303F0173"
+			    autoResize 	TRUE
+			    sync_flow_direction 	2
+			    sync_is_horizontal 	FALSE)
+			(object TransView "" @45
+			    stereotype 	TRUE
+			    line_color 	3342489
+			    quidu      	"5ECE304401F5"
+			    client     	@11
+			    supplier   	@43
+			    vertices   	(list Points
+				(559, 1080)
+				(855, 1080))
+			    line_style 	0
+			    x_offset   	FALSE)
+			(object TransView "" @46
+			    stereotype 	TRUE
+			    line_color 	3342489
+			    quidu      	"5ECE31CF03CF"
+			    client     	@43
+			    supplier   	@26
+			    vertices   	(list Points
+				(874, 1076)
+				(1002, 1026))
+			    line_style 	0
+			    x_offset   	FALSE)
+			(object TransView "" @47
+			    stereotype 	TRUE
+			    line_color 	3342489
+			    quidu      	"5ECE31D90015"
+			    client     	@43
+			    supplier   	@27
+			    vertices   	(list Points
+				(874, 1083)
+				(994, 1117))
+			    line_style 	0
+			    x_offset   	FALSE)
+			(object SynchronizationView "$UNNAMED$4" @48
+			    location   	(1437, 1075)
+			    font       	(object Font
+				size       	10
+				face       	"Arial"
+				bold       	FALSE
+				italics    	FALSE
+				underline  	FALSE
+				strike     	FALSE
+				color      	0
+				default_color 	TRUE)
+			    label      	(object SegLabel @49
+				Parent_View 	@48
+				location   	(1458, 1150)
+				font       	(object Font
+				    size       	10
+				    face       	"Arial"
+				    bold       	FALSE
+				    italics    	TRUE
+				    underline  	FALSE
+				    strike     	FALSE
+				    color      	0
+				    default_color 	TRUE)
+				nlines     	2
+				max_width  	300
+				justify    	1
+				label      	""
+				pctDist    	1.000000
+				height     	0
+				orientation 	0)
+			    icon_style 	"Icon"
+			    line_color 	3342489
+			    quidu      	"5ECE31C703B5"
+			    autoResize 	TRUE
+			    sync_flow_direction 	2
+			    sync_is_horizontal 	FALSE)
+			(object TransView "" @50
+			    stereotype 	TRUE
+			    line_color 	3342489
+			    quidu      	"5ECE31DF016A"
+			    client     	@26
+			    supplier   	@48
+			    vertices   	(list Points
+				(1286, 1023)
+				(1427, 1071))
+			    line_style 	0
+			    x_offset   	FALSE)
+			(object TransView "" @51
+			    stereotype 	TRUE
+			    line_color 	3342489
+			    quidu      	"5ECE31E103C5"
+			    client     	@27
+			    supplier   	@48
+			    vertices   	(list Points
+				(1297, 1115)
+				(1427, 1077))
+			    line_style 	0
+			    x_offset   	FALSE)
+			(object TransView "" @52
+			    stereotype 	TRUE
+			    line_color 	3342489
+			    quidu      	"5ECE320300A5"
+			    client     	@48
+			    supplier   	@28
+			    vertices   	(list Points
+				(1446, 1075)
+				(1511, 1075))
+			    line_style 	0
+			    x_offset   	FALSE)
+			(object TransView "" @53
+			    stereotype 	TRUE
+			    line_color 	3342489
+			    quidu      	"5ECE32960039"
+			    client     	@39
+			    supplier   	@41
+			    vertices   	(list Points
+				(2698, 1640)
+				(2698, 1750))
+			    line_style 	0
+			    x_offset   	FALSE)))))
+	logical_presentations 	(list unit_reference_list
+	    (object UseCaseDiagram "Main"
+		quid       	"5ECE25490332"
+		title      	"Main"
+		zoom       	100
+		max_height 	28350
+		max_width  	21600
+		origin_x   	0
+		origin_y   	0
+		items      	(list diagram_item_list))
+	    (object InteractionDiagram "NewDiagram"
+		mechanism_ref 	@1
+		quid       	"5ECE2BAC0099"
+		title      	"NewDiagram"
+		zoom       	100
+		max_height 	28350
+		max_width  	21600
+		origin_x   	0
+		origin_y   	0
+		items      	(list diagram_item_list
+		    (object Label @54
+			location   	(253, 59)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			nlines     	1
+			max_width  	1981
+			justify    	1
+			label      	"")))))
+    root_category 	(object Class_Category "Logical View"
+	quid       	"5ECE25480202"
+	exportControl 	"Public"
+	global     	TRUE
+	subsystem  	"Component View"
+	quidu      	"5ECE25480204"
+	logical_models 	(list unit_reference_list)
+	logical_presentations 	(list unit_reference_list
+	    (object ClassDiagram "Main"
+		quid       	"5ECE25490337"
+		title      	"Main"
+		zoom       	100
+		max_height 	28350
+		max_width  	21600
+		origin_x   	0
+		origin_y   	0
+		items      	(list diagram_item_list))))
+    root_subsystem 	(object SubSystem "Component View"
+	quid       	"5ECE25480204"
+	physical_models 	(list unit_reference_list)
+	physical_presentations 	(list unit_reference_list
+	    (object Module_Diagram "Main"
+		quid       	"5ECE25490331"
+		title      	"Main"
+		zoom       	100
+		max_height 	28350
+		max_width  	21600
+		origin_x   	0
+		origin_y   	0
+		items      	(list diagram_item_list)))
+	category   	"Logical View"
+	quidu      	"5ECE25480202")
+    process_structure 	(object Processes
+	quid       	"5ECE25480205"
+	ProcsNDevs 	(list
+	    (object Process_Diagram "Deployment View"
+		quid       	"5ECE25480207"
+		title      	"Deployment View"
+		zoom       	100
+		max_height 	28350
+		max_width  	21600
+		origin_x   	0
+		origin_y   	0
+		items      	(list diagram_item_list))))
+    properties 	(object Properties
+	attributes 	(list Attribute_Set
+	    (object Attribute
+		tool       	"Data Modeler Communicator"
+		name       	"HiddenTool"
+		value      	FALSE)
+	    (object Attribute
+		tool       	"Deploy"
+		name       	"HiddenTool"
+		value      	FALSE)
+	    (object Attribute
+		tool       	"Rose Model Integrator"
+		name       	"HiddenTool"
+		value      	FALSE)
+	    (object Attribute
+		tool       	"COM"
+		name       	"propertyId"
+		value      	"783606378")
+	    (object Attribute
+		tool       	"COM"
+		name       	"default__Class"
+		value      	(list Attribute_Set
+		    (object Attribute
+			tool       	"COM"
+			name       	"TypeKinds"
+			value      	(list Attribute_Set
+			    (object Attribute
+				tool       	"COM"
+				name       	"enum"
+				value      	100)
+			    (object Attribute
+				tool       	"COM"
+				name       	"record"
+				value      	101)
+			    (object Attribute
+				tool       	"COM"
+				name       	"module"
+				value      	102)
+			    (object Attribute
+				tool       	"COM"
+				name       	"interface"
+				value      	103)
+			    (object Attribute
+				tool       	"COM"
+				name       	"dispinterface"
+				value      	104)
+			    (object Attribute
+				tool       	"COM"
+				name       	"coclass"
+				value      	105)
+			    (object Attribute
+				tool       	"COM"
+				name       	"alias"
+				value      	106)
+			    (object Attribute
+				tool       	"COM"
+				name       	"union"
+				value      	107)
+			    (object Attribute
+				tool       	"COM"
+				name       	"max"
+				value      	108)
+			    (object Attribute
+				tool       	"COM"
+				name       	"(none)"
+				value      	109)))
+		    (object Attribute
+			tool       	"COM"
+			name       	"Generate"
+			value      	TRUE)
+		    (object Attribute
+			tool       	"COM"
+			name       	"kind"
+			value      	("TypeKinds" 109))
+		    (object Attribute
+			tool       	"COM"
+			name       	"uuid"
+			value      	"")
+		    (object Attribute
+			tool       	"COM"
+			name       	"version"
+			value      	"")
+		    (object Attribute
+			tool       	"COM"
+			name       	"helpstring"
+			value      	"")
+		    (object Attribute
+			tool       	"COM"
+			name       	"helpcontext"
+			value      	"")
+		    (object Attribute
+			tool       	"COM"
+			name       	"attributes"
+			value      	"")
+		    (object Attribute
+			tool       	"COM"
+			name       	"dllname"
+			value      	"")
+		    (object Attribute
+			tool       	"COM"
+			name       	"alias"
+			value      	"")))
+	    (object Attribute
+		tool       	"COM"
+		name       	"default__Operation"
+		value      	(list Attribute_Set
+		    (object Attribute
+			tool       	"COM"
+			name       	"Generate"
+			value      	TRUE)
+		    (object Attribute
+			tool       	"COM"
+			name       	"id"
+			value      	"")
+		    (object Attribute
+			tool       	"COM"
+			name       	"helpstring"
+			value      	"")
+		    (object Attribute
+			tool       	"COM"
+			name       	"attributes"
+			value      	"")))
+	    (object Attribute
+		tool       	"COM"
+		name       	"default__Attribute"
+		value      	(list Attribute_Set
+		    (object Attribute
+			tool       	"COM"
+			name       	"Generate"
+			value      	TRUE)
+		    (object Attribute
+			tool       	"COM"
+			name       	"id"
+			value      	"")
+		    (object Attribute
+			tool       	"COM"
+			name       	"helpstring"
+			value      	"")
+		    (object Attribute
+			tool       	"COM"
+			name       	"attributes"
+			value      	"")))
+	    (object Attribute
+		tool       	"COM"
+		name       	"default__Module-Spec"
+		value      	(list Attribute_Set
+		    (object Attribute
+			tool       	"COM"
+			name       	"Generate"
+			value      	TRUE)
+		    (object Attribute
+			tool       	"COM"
+			name       	"filename"
+			value      	"")
+		    (object Attribute
+			tool       	"COM"
+			name       	"library"
+			value      	"")
+		    (object Attribute
+			tool       	"COM"
+			name       	"uuid"
+			value      	"")
+		    (object Attribute
+			tool       	"COM"
+			name       	"version"
+			value      	"")
+		    (object Attribute
+			tool       	"COM"
+			name       	"helpstring"
+			value      	"")
+		    (object Attribute
+			tool       	"COM"
+			name       	"helpfile"
+			value      	"")
+		    (object Attribute
+			tool       	"COM"
+			name       	"helpcontext"
+			value      	"")
+		    (object Attribute
+			tool       	"COM"
+			name       	"lcid"
+			value      	"")
+		    (object Attribute
+			tool       	"COM"
+			name       	"attributes"
+			value      	"")))
+	    (object Attribute
+		tool       	"COM"
+		name       	"default__Param"
+		value      	(list Attribute_Set
+		    (object Attribute
+			tool       	"COM"
+			name       	"attributes"
+			value      	"")))
+	    (object Attribute
+		tool       	"COM"
+		name       	"HiddenTool"
+		value      	FALSE)
+	    (object Attribute
+		tool       	"VisualStudio"
+		name       	"HiddenTool"
+		value      	FALSE))
+	quid       	"5ECE25480206"))

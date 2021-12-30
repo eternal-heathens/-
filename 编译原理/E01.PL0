@@ -1,0 +1,13 @@
+PROGRAM EX01;
+VAR A,B,C,D;
+BEGIN
+  A:=88;
+  READ(B);
+  FOR;STEP;UNTIL;TYPEDEF;//;
+  
+  A/=2;
+  WRITE(A);
+  IF B!=0 THEN WRITE(B) ELSE WRITE(A);
+  C:=A+B*(3+B);
+  WRITE(C);
+END.
